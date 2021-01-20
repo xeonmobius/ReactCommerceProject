@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const CartScreen = () => {
-    return (
-        <div>
-            Cart
-        </div>
-    )
-}
+	return <div>Cart</div>;
+};
 
-export default CartScreen
+export default CartScreen;
