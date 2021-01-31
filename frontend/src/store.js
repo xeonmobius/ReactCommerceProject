@@ -6,8 +6,21 @@ import {
 	productDetailsReducer,
 } from './reducers/productReducers';
 import { cartReducer } from './reducers/cartReducer';
-import { userLoginReducer, userRegisterReducer, userDetailsReducer, userUpdateProfileReducer } from './reducers/userReducers';
-import { orderCreateReducer, orderDetailsReducer, orderPayReducer, orderListMyReducer } from './reducers/orderReducers';
+import {
+	userLoginReducer,
+	userRegisterReducer,
+	userDetailsReducer,
+	userUpdateProfileReducer,
+	userListReducer,
+	userDeleteReducer,
+	userUpdateReducer,
+} from './reducers/userReducers';
+import {
+	orderCreateReducer,
+	orderDetailsReducer,
+	orderPayReducer,
+	orderListMyReducer,
+} from './reducers/orderReducers';
 
 const reducer = combineReducers({
 	userLogin: userLoginReducer,
@@ -16,7 +29,10 @@ const reducer = combineReducers({
 	cart: cartReducer,
 	userRegister: userRegisterReducer,
 	userDetails: userDetailsReducer,
+	userList: userListReducer,
 	userUpdateProfile: userUpdateProfileReducer,
+	userDelete: userDeleteReducer,
+	userUpdate: userUpdateReducer,
 	orderCreate: orderCreateReducer,
 	orderDetails: orderDetailsReducer,
 	orderPay: orderPayReducer,
@@ -36,10 +52,10 @@ const shippingAddressFromStorage = localStorage.getItem('shippingAddress')
 
 const paymentMethodFromStorage = localStorage.getItem('paymentMethod')
 	? JSON.parse(localStorage.getItem('paymentMethod'))
-	: "";
+	: '';
 
 const initialState = {
-	cart: { 
+	cart: {
 		cartItems: cartItemsFromStorage,
 		shippingAddress: shippingAddressFromStorage,
 		paymentMethod: paymentMethodFromStorage,
@@ -53,6 +69,5 @@ const store = createStore(
 	initialState,
 	composeWithDevTools(applyMiddleware(...middleware))
 );
-
 
 export default store;
